@@ -16,3 +16,10 @@ jobs:
       # Use the output from the `hello` step
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
+      - name: Publish to Registry
+        uses: HurricanKai/Publish-Docker-Github-Action@master
+        with:
+          name: marcefr/primeraprueba
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          tagging: true
